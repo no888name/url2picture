@@ -15,7 +15,7 @@ let helper = {
     baseurl: function (req) {
         return req.protocol + '://' + req.get('host');
     },
-}
+};
 
 
 app.use(limiter).use(express.json())
@@ -46,7 +46,7 @@ app.use(limiter).use(express.json())
                     cache: true
                 });
             } else {
-                console.log('not exist, requesting',url);
+                console.log('not exist, requesting', url);
 
                 webshot(url, `static/images/${name}`, function (err) {
                     // screenshot now saved to google.png
