@@ -10,7 +10,6 @@ const limiter = rateLimit({
 
 var fs = require('fs');
 var webshot = require('node-webshot');
-var bodyParser = require('body-parser')
 
 let helper = {
     baseurl: function (req) {
@@ -19,8 +18,7 @@ let helper = {
 }
 
 
-
-    app.use(limiter).use(express.json())
+app.use(limiter).use(express.json())
     .get('/', (req, res) => {
         res.send('API root')
     })
@@ -28,7 +26,7 @@ let helper = {
         res.send('test')
     })
     .post('/picture', (req, res) => {
-
+        console.log('starting capturing ...');
         var url = req.body.url;
         //todo: add url validation
         if (url) {
@@ -43,11 +41,12 @@ let helper = {
                 //file exists
                 res.send({
                     url_hash: name,
-                    img: helper.baseurl(req) + `/images/${name}`,
+                    imgName: name,
+                    imgUrl: helper.baseurl(req) + `/images/${name}`,
                     cache: true
                 });
             } else {
-                // console.log('not exist');
+                console.log('not exist, requesting',url);
 
                 webshot(url, `static/images/${name}`, function (err) {
                     // screenshot now saved to google.png
@@ -55,7 +54,8 @@ let helper = {
                         console.log(`screenshot now saved to static/images/${name}`);
                         res.send({
                             url_hash: name,
-                            img: helper.baseurl(req) + `/images/${name}`,
+                            imgName: name,
+                            imgUrl: helper.baseurl(req) + `/images/${name}`,
                             cache: false
                         });
 
