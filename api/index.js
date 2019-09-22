@@ -69,8 +69,8 @@ app.use(limiter).use(express.json())
         }
 
 
-    })
-    .listen(PORT, () => console.log(`Listening on ${PORT}`))
+    });
+
 
 // export the server middleware
 module.exports = {

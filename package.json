@@ -17,7 +17,8 @@
     "express-rate-limit": "^5.0.0",
     "node-webshot": "^1.0.3",
     "nuxt": "^2.0.0",
-    "@nuxtjs/axios": "latest"
+    "@nuxtjs/axios": "latest",
+    "@nuxtjs/vuetify": "latest"
   },
   "devDependencies": {
     "nodemon": "^1.18.9",
