@@ -20,6 +20,7 @@ let helper = {
 
 app.use(limiter).use(express.json())
     .get('/', (req, res) => {
+        console.log('root ');
         res.send('API root')
     })
     .get('/test', (req, res) => {
