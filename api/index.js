@@ -47,7 +47,11 @@ app.use(limiter).use(express.json())
                     cache: true
                 });
             } else {
-                console.log('not exist, requesting', url);
+                console.log('not exist, requesting', url,name);
+
+		    var options = {
+			     "phantomPath": "./../node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs"
+			   };
 
                 webshot(url, `static/images/${name}`, function (err) {
                     // screenshot now saved to google.png
