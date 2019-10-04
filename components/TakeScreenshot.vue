@@ -60,7 +60,7 @@
             async fetchSomething() {
                 this.loading = true;
                 console.log("url",this.url);
-                await this.$axios.post('http://url2picture.litvinov.tech/api/picture', {
+                await this.$axios.post('/api/picture', {
                     url: this.url
                 })
                     .then(responce => {

@@ -54,6 +54,8 @@ module.exports = {
   ],
   axios: {
     // proxyHeaders: false
+	  baseURL:'https://url2picture.litvinov.tech',
+	  https:true
   },
   /*
   ** vuetify module configuration
